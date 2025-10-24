@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Mis migas de pan — Demo</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="brand">
+      <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='48' height='48'><rect width='48' height='48' rx='8' fill='%23F5D6A1'/><text x='50%' y='56%' font-size='18' text-anchor='middle' fill='%23333' font-family='Arial' font-weight='700'>MM</text></svg>" alt="logo" class="logo">
+      <h1>Mis migas de pan</h1>
+    </div>
+
+    <nav class="main-nav" id="nav">
+      <button class="lang-toggle" id="langToggle">PT</button>
+      <ul>
+        <li><a href="#panaderia" data-key="panaderia">Panadería</a></li>
+        <li><a href="#bolleria" data-key="bolleria">Pastelería - Bollería</a></li>
+        <li><a href="#empanadas" data-key="empanadas">Empanadas</a></li>
+        <li><a href="#contacto" data-key="contacto">Contacto</a></li>
+      </ul>
+      <button class="menu-btn" id="menuBtn" aria-label="abrir menú">☰</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-left">
+        <h2 data-key="hero_title">Elaboración tradicional del pan</h2>
+        <p data-key="hero_lead">Venga a conocer nuestro proceso artesanal: desde la masa hasta el horno.</p>
+        <div class="cta-row">
+          <a class="btn" href="#panaderia" data-key="ver_productos">Ver productos</a>
+          <a class="btn ghost" href="#contacto" data-key="contacto_btn">Contacto</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <!-- Simple SVG animation showing dough -> shaping -> baking -->
+        <svg class="bread-anim" viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <!-- Oven -->
+          <rect x="330" y="220" width="220" height="120" rx="8" fill="#3a3a3a"/>
+          <rect x="355" y="240" width="170" height="80" rx="6" fill="#2b2b2b"/>
+          <!-- Tray -->
+          <rect x="370" y="270" width="120" height="10" rx="2" fill="#b07a4a" class="tray"/>
+          <!-- Dough stages -->
+          <g class="stages">
+            <circle cx="120" cy="260" r="24" fill="#f7e5c7" class="dough" />
+            <g class="shaped" transform="translate(0,0)" opacity="0">
+              <path d="M200 260 q20 -30 40 0 q-20 30 -40 0" fill="#f1d3a0"/>
+            </g>
+            <g class="loaf" transform="translate(0,0)" opacity="0">
+              <ellipse cx="280" cy="250" rx="36" ry="22" fill="#e3b07a"/>
+              <path d="M252 246 q28 -18 56 0" stroke="#c78a57" stroke-width="3" fill="none" />
+            </g>
+          </g>
+        </svg>
+        <p class="anim-caption" data-key="anim_caption">Animación: masa → formado → horneado</p>
+      </div>
+    </section>
+
+    <section id="panaderia" class="products">
+      <h3 data-key="panaderia">Panadería</h3>
+      <p class="muted" data-key="pan_desc">Diez recetas clásicas, pronto amplíaremos a 12.</p>
+      <div class="grid" id="panGrid">
+        <!-- Product cards injected by JS -->
+      </div>
+    </section>
+
+    <section id="bolleria" class="products">
+      <h3 data-key="bolleria">Pastelería - Bollería</h3>
+      <p class="muted" data-key="boll_desc">Dulces y bollos recién horneados cada mañana.</p>
+      <div class="grid" id="bollGrid"></div>
+    </section>
+
+    <section id="empanadas" class="products">
+      <h3 data-key="empanadas">Empanadas</h3>
+      <p class="muted" data-key="emp_desc">Rellenos tradicionales y modernos.</p>
+      <div class="grid" id="empGrid"></div>
+    </section>
+
+    <section id="contacto" class="contact">
+      <h3 data-key="contacto">Contacto</h3>
+      <div class="contact-grid">
+        <div>
+          <p><strong data-key="direccion_label">Dirección:</strong> Rua Ficticia 12, Vila Fronteira (PT/ES)</p>
+          <p><strong data-key="telefono_label">Teléfono:</strong> +34 600 000 000</p>
+          <p><strong data-key="horario_label">Horario:</strong> Lun-Sab 7:00 - 15:00</p>
+        </div>
+        <div class="map-mock" aria-hidden="true">
+          <!-- simple croquis -->
+          <svg viewBox="0 0 200 120" xmlns="http://www.w3.org/2000/svg">
+            <rect width="200" height="120" fill="#f6f6f6"/>
+            <path d="M10 100 L190 100" stroke="#ccc" />
+            <path d="M40 20 L80 60 L120 30 L160 70" stroke="#d88" fill="none" stroke-width="3"/>
+            <circle cx="80" cy="60" r="6" fill="#c24"/>
+            <text x="90" y="60" font-size="9" fill="#333">Mis migas</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© Mis migas de pan — Demo UI — <span data-key="footer_lang">ES / PT</span></p>
+  </footer>
+
+  <!-- Mobile bottom nav -->
+  <nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+    <a href="#panaderia" data-key="m_pan">Pan</a>
+    <a href="#bolleria" data-key="m_boll">Bollos</a>
+    <a href="#empanadas" data-key="m_emp">Empan.</a>
+    <button id="mobileLang" class="mobile-lang">PT</button>
+  </nav>
+
+  <div id="mobileOverlay" class="overlay" hidden>
+    <div class="overlay-inner">
+      <button id="closeOverlay" class="close">✕</button>
+      <ul>
+        <li><a href="#panaderia" data-key="panaderia">Panadería</a></li>
+        <li><a href="#bolleria" data-key="bolleria">Pastelería - Bollería</a></li>
+        <li><a href="#empanadas" data-key="empanadas">Empanadas</a></li>
+        <li><a href="#contacto" data-key="contacto">Contacto</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
